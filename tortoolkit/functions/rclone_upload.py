@@ -65,7 +65,7 @@ async def rclone_upload(
     await task.set_original_message(omsg)
     upload_db.register_upload(omsg.chat_id, omsg.id)
     data = "upcancel {} {} {}".format(omsg.chat_id, omsg.id, omsg.sender_id)
-    buts = [KeyboardButtonCallback("Cancel upload.", data.encode("UTF-8"))]
+    buts = [KeyboardButtonCallback("Cancel Upload", data.encode("UTF-8"))]
 
     msg = await message.reply(
         "<b>Uploading to configured drive.... will be updated soon.",

@@ -557,7 +557,7 @@ async def register_torrent(entity, message, user_msg=None, magnet=False, file=Fa
                     ],
                     [
                         KeyboardButtonCallback(
-                            "Done Selecting Files.",
+                            "Selected Files",
                             data=f"doneselection {omess.sender_id} {omess.id}".encode(
                                 "UTF-8"
                             ),
@@ -611,7 +611,7 @@ async def register_torrent(entity, message, user_msg=None, magnet=False, file=Fa
                     ],
                     [
                         KeyboardButtonCallback(
-                            "Done Selecting Files.",
+                            "Selected Files",
                             data=f"doneselection {omess.sender_id} {omess.id}".encode(
                                 "UTF-8"
                             ),
