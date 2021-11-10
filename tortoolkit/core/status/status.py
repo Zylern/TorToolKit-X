@@ -81,7 +81,7 @@ class QBTask(Status):
             human_readable_bytes(self._torrent.downloaded),
             human_readable_bytes(self._torrent.total_size),
         )
-        msg += "<b>⏳ ETA:</b> <b>{}</b>\n\n".format(
+        msg += "<b>⏳ ETA:</b> {}\n\n".format(
             human_readable_timedelta(self._torrent.eta)
         )
         msg += "<b>S:</b>{} <b>L:</b>{}\n\n".format(
@@ -241,8 +241,8 @@ class ARTask(Status):
             human_readable_bytes(self._dl_file.completed_length),
             human_readable_bytes(self._dl_file.total_length),
         )
-        msg += "<b>⏳ ETA:</b> <b>{}</b>\n\n".format(self._dl_file.eta_string())
-        msg += "<b>Conns:</b>{} <b>\n\n".format(self._dl_file.connections)
+        msg += "<b>⏳ ETA:</b> {}\n\n".format(self._dl_file.eta_string())
+        msg += "<b>Conns:</b> {}\n\n".format(self._dl_file.connections)
         msg += "<b>Using engine:</b> <code>Aria2 For DirectLinks</code>"
 
         return msg
