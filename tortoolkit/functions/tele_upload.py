@@ -319,7 +319,7 @@ async def upload_a_file(
     uploader_id = None
     if queue is not None:
         torlog.info(f"Waiting for the worker here for {file_name}")
-        msg = await msg.edit(f"{msg.text}\nWaiting for a uploaders to get free... ")
+        msg = await msg.edit(f"{msg.text}\nWait For Uploader To Get Free.. ")
         uploader_id = await queue.get()
         torlog.info(
             f"Waiting over for the worker here for {file_name} aquired worker {uploader_id}"
@@ -561,7 +561,7 @@ async def upload_single_file(
             if queue is not None:
                 torlog.info(f"Waiting for the worker here for {file_name}")
                 message_for_progress_display = await message_for_progress_display.edit(
-                    f"{message_for_progress_display.text}\nWaiting for a uploaders to get free... "
+                    f"{message_for_progress_display.text}\nWait For Uploader To Get Free.. "
                 )
                 uploader_id = await queue.get()
                 torlog.info(
