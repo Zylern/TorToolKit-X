@@ -282,7 +282,7 @@ async def handle_leech_command(e):
         )
 
         conf_mes = await e.reply(
-            f"First click if you want to zip the contents or extract as an archive (only one will work at a time) then...\n\n<b>Choose where to upload your files:-</b>\nThe files will be uploaded to default destination: <b>{get_val('DEFAULT_TIMEOUT')}</b> after 60 sec of no action by user.</u>\n\n<b>Supported archives to extract:</b>\nzip, 7z, tar, gzip2, iso, wim, rar, tar.gz, tar.bz2",
+            f"First click if you want to zip the contents or extract as an archive (only one will work at a time) then...\n\n<b>Choose where to upload your files:</b>\nThe files will be uploaded to default destination: <b>{get_val('DEFAULT_TIMEOUT')}</b> after 60 sec of no action by user.</u>\n\n<b>Supported archives to extract:</b>\nzip, 7z, tar, gzip2, iso, wim, rar, tar.gz, tar.bz2",
             parse_mode="html",
             buttons=buts,
         )
@@ -528,7 +528,7 @@ async def callback_handler_canc(e):
     if data[2] == str(e.sender_id):
         hashid = data[1]
         hashid = hashid.strip("'")
-        torlog.info(f"Hashid :- {hashid}")
+        torlog.info(f"Hashid : {hashid}")
 
         await cancel_torrent(hashid, is_aria, is_mega)
         await e.answer("Your Leech has been canceled!", alert=True)
@@ -536,7 +536,7 @@ async def callback_handler_canc(e):
         hashid = data[1]
         hashid = hashid.strip("'")
 
-        torlog.info(f"Hashid :- {hashid}")
+        torlog.info(f"Hashid : {hashid}")
 
         await cancel_torrent(hashid, is_aria, is_mega)
         await e.answer("Leech has been canceled in ADMIN MODE!", alert=True)
@@ -655,8 +655,8 @@ async def start_handler(event):
 def progress_bar(percentage):
     """Returns a progress bar for download"""
     # percentage is on the scale of 0-1
-    comp = get_val("COMPLETED_STR")
-    ncomp = get_val("REMAINING_STR")
+    comp = get_val("▬ ")
+    ncomp = get_val("▭")
     pr = ""
 
     if isinstance(percentage, str):
@@ -741,18 +741,18 @@ async def handle_server_command(message):
 
     if callbk:
         msg = (
-            f"<b>BOT UPTIME:-</b> {diff}\n\n"
-            "<b>CPU STATS:-</b>\n"
+            f"<b>BOT UPTIME:</b> {diff}\n\n"
+            "<b>CPU STATS:</b>\n"
             f"Cores: {cores} Logical: {lcores}\n"
             f"CPU Frequency: {freqcurrent}  Mhz Max: {freqmax}\n"
             f"CPU Utilization: {cpupercent}%\n"
             "\n"
-            "<b>STORAGE STATS:-</b>\n"
+            "<b>STORAGE STATS:</b>\n"
             f"Total: {totaldsk}\n"
             f"Used: {useddsk}\n"
             f"Free: {freedsk}\n"
             "\n"
-            "<b>MEMORY STATS:-</b>\n"
+            "<b>MEMORY STATS:</b>\n"
             f"Available: {memavailable}\n"
             f"Total: {memtotal}\n"
             f"Usage: {mempercent}%\n"
@@ -770,14 +770,14 @@ async def handle_server_command(message):
             storage_percent = 0
 
         msg = (
-            f"<b>BOT UPTIME:-</b> {diff}\n\n"
-            f"CPU Utilization: {progress_bar(cpupercent)} - {cpupercent}%\n\n"
-            f"Storage used:- {progress_bar(storage_percent)} - {storage_percent}%\n"
+            f"<b>BOT UPTIME:</b> {diff}\n\n"
+            f"CPU Utilization: {progress_bar(cpupercent)} {cpupercent}%\n\n"
+            f"Storage used: {progress_bar(storage_percent)} {storage_percent}%\n"
             f"Total: {totaldsk} Free: {freedsk}\n\n"
-            f"Memory used:- {progress_bar(mempercent)} - {mempercent}%\n"
+            f"Memory used: {progress_bar(mempercent)} {mempercent}%\n"
             f"Total: {memtotal} Free: {memfree}\n\n"
-            f"Transfer Download:- {dlb}\n"
-            f"Transfer Upload:- {upb}\n"
+            f"Transfer Download: {dlb}\n"
+            f"Transfer Upload: {upb}\n"
         )
         await message.reply(
             msg,
@@ -821,15 +821,15 @@ async def about_me(message):
         f"<b>Version</b>: <code>{__version__}</code>\n"
         f"<b>Telethon Version</b>: {telever}\n"
         f"<b>Pyrogram Version</b>: {pyrover}\n"
-        "<u>Currents Configs:-</u>\n\n"
-        f"<b>Bot Uptime:-</b> {diff}\n"
-        "<b>Torrent Download Engine:-</b> <code>qBittorrent [4.3.0 fix active]</code> \n"
-        "<b>Direct Link Download Engine:-</b> <code>aria2</code> \n"
-        "<b>Upload Engine:-</b> <code>RCLONE</code> \n"
-        "<b>Youtube Download Engine:-</b> <code>yt-dlp</code>\n"
-        f"<b>Rclone config:- </b> <code>{rclone_cfg}</code>\n"
-        f"<b>Leech:- </b> <code>{leen}</code>\n"
-        f"<b>Rclone:- </b> <code>{rclone}</code>\n"
+        "<u>Currents Configs:</u>\n\n"
+        f"<b>Bot Uptime:</b> {diff}\n"
+        "<b>Torrent Download Engine:</b> <code>qBittorrent [4.3.0 fix active]</code> \n"
+        "<b>Direct Link Download Engine:</b> <code>aria2</code> \n"
+        "<b>Upload Engine:</b> <code>RCLONE</code> \n"
+        "<b>Youtube Download Engine:</b> <code>yt-dlp</code>\n"
+        f"<b>Rclone config: </b> <code>{rclone_cfg}</code>\n"
+        f"<b>Leech: </b> <code>{leen}</code>\n"
+        f"<b>Rclone: </b> <code>{rclone}</code>\n"
     )
 
     await message.reply(msg, link_preview=False, parse_mode="html")
