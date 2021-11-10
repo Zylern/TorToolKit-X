@@ -531,7 +531,7 @@ async def handle_ext_zip(path, rmess, omess):
 
 
 async def errored_message(e, reason):
-    msg = f"<a href='tg://user?id={e.sender_id}'>Done</a>\nYour Download Failed."
+    msg = f"<a href='tg://user?id={e.sender_id}'>Done</a>\nDownload Failed."
     if reason is not None:
         await reason.reply(msg, parse_mode="html")
     else:
@@ -545,11 +545,11 @@ async def print_files(e, files, thash=None, path=None, size=None):
         size = calculate_size(path)
         transfer[0] += size
         size = human_readable_bytes(size)
-        msg += f"Uploaded Size:- {str(size)}\n\n"
+        msg += f"**Uploaded:** {str(size)}\n\n"
     elif size is not None:
         transfer[0] += size
         size = human_readable_bytes(size)
-        msg += f"Uploaded Size:- {str(size)}\n\n"
+        msg += f"**Uploaded:** {str(size)}\n\n"
 
     if len(files) == 0:
         return
