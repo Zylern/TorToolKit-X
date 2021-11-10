@@ -771,13 +771,13 @@ async def handle_server_command(message):
 
         msg = (
             f"<b>BOT UPTIME:</b> {diff}\n\n"
-            f"CPU Utilization: {progress_bar(cpupercent)} {cpupercent}%\n\n"
-            f"Storage used: {progress_bar(storage_percent)} {storage_percent}%\n"
-            f"Total: {totaldsk} Free: {freedsk}\n\n"
-            f"Memory used: {progress_bar(mempercent)} {mempercent}%\n"
-            f"Total: {memtotal} Free: {memfree}\n\n"
-            f"Transfer Download: {dlb}\n"
-            f"Transfer Upload: {upb}\n"
+            f"<b>CPU Utilization:</b> {progress_bar(cpupercent)} {cpupercent}%\n\n"
+            f"<b>Storage used:</b> {progress_bar(storage_percent)} {storage_percent}%\n"
+            f"<b>Total:</b> {totaldsk} Free:</b> {freedsk}\n\n"
+            f"<b>Memory used:</b> {progress_bar(mempercent)} {mempercent}%\n"
+            f"<b>Total:</b> {memtotal} Free:</b> {memfree}\n\n"
+            f"<b>Transfer Download:</b> {dlb}\n"
+            f"<b>Transfer Upload:</b> {upb}\n"
         )
         await message.reply(
             msg,
