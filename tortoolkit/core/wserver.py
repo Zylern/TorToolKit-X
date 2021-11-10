@@ -554,7 +554,7 @@ section span{
     <section>
       <form action="{form_url}">
         <div>
-          <label for="pin_code">Pin Code :</label>
+          <label for="pin_code">Enter Pin Code</label>
           <input
             type="text"
             name="pin_code"
