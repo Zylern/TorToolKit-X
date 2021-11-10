@@ -771,10 +771,10 @@ async def handle_server_command(message):
 
         msg = (
             f"<b>BOT UPTIME:</b> {diff}\n\n"
-            f"<b>CPU Utilization:</b> {progress_bar(cpupercent)} {cpupercent}%\n\n"
-            f"<b>Storage used:</b> {progress_bar(storage_percent)} {storage_percent}%\n"
+            f"<b>CPU Utilization:</b> {cpupercent}%\n\n"
+            f"<b>Storage used:</b> {storage_percent}%\n"
             f"<b>Total:</b> {totaldsk}\n<b>Used:</b> {useddsk}\n<b>Free:</b> {freedsk}\n\n"
-            f"<b>Memory used:</b> {progress_bar(mempercent)} {mempercent}%\n"
+            f"<b>Memory used:</b> {mempercent}%\n"
             f"<b>Total:</b> {memtotal}\n<b>Free:</b> {memfree}\n\n"
             f"<b>Transfer Download:</b> {dlb}\n"
             f"<b>Transfer Upload:</b> {upb}\n"
