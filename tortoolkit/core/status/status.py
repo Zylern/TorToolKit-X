@@ -68,7 +68,7 @@ class QBTask(Status):
         return self._omess.sender_id
 
     async def create_message(self):
-        msg = "<b>Progress:</b> {} {}%\n\n".format(
+        msg = "<b>{} {}%\n\n".format(
             self.progress_bar(self._torrent.progress),
             round(self._torrent.progress * 100, 2),
         )
@@ -229,7 +229,7 @@ class ARTask(Status):
         except:
             pass
 
-        msg = "<b>Progress:</b> {} {}%\n\n".format(
+        msg = "<b>{} {}%\n\n".format(
             self.progress_bar(self._dl_file.progress / 100),
             round(self._dl_file.progress, 2),
         )
@@ -369,7 +369,7 @@ class MegaDl(Status):
 
         msg = "<b>📥 Downloading:</b> <code>{}</code>\n\n".format(self._dl_info["name"])
         msg += "<b>🚀 Speed:</b> {}\n\n".format(human_readable_bytes(self._dl_info["speed"]))
-        msg += "<b>Progress:</b> {} {}%\n\n".format(
+        msg += "{} {}%\n\n".format(
             self.progress_bar(
                 (self._dl_info["completed_length"] / self._dl_info["total_length"])
             ),
