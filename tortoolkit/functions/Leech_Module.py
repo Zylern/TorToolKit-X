@@ -531,7 +531,7 @@ async def handle_ext_zip(path, rmess, omess):
 
 
 async def errored_message(e, reason):
-    msg = f"<a href='tg://user?id={e.sender_id}'>Done</a>\nDownload Failed."
+    msg = f"<a href='tg://user?id={e.sender_id}'>Failed</a>\nDownload Failed."
     if reason is not None:
         await reason.reply(msg, parse_mode="html")
     else:
@@ -539,36 +539,31 @@ async def errored_message(e, reason):
 
 
 async def print_files(e, files, thash=None, path=None, size=None):
+    chat_id = str(e.chat.id)[4:]
+    count = len(files)
     msg = f"#uploads\n<a href='tg://user?id={e.sender_id}'>Your Requested Files:</a>\n\n"
-
     if path is not None and size is None:
         size = calculate_size(path)
         transfer[0] += size
         size = human_readable_bytes(size)
-        msg += f"<b>Total Size:</b> {str(size)}\n\n"
+        msg += f"<b>Total Size:</b> {str(size)}\n<b>Total Files:</b> {count}\n\n"
     elif size is not None:
         transfer[0] += size
         size = human_readable_bytes(size)
-        msg += f"<b>Total Size:</b> {str(size)}\n\n"
-
+        msg += f"<b>Total Size:</b> {str(size)}\n<b>Total Files:</b> {count}\n\n"
     if len(files) == 0:
         return
-
-    chat_id = e.chat_id
     msg_li = []
-    for i in files.keys():
-        link = f"https://t.me/c/{str(chat_id)[4:]}/{files[i]}"
-        if len(msg + f'- <a href="{link}">{i}</a>\n') > 4000:
-            msg_li.append(msg)
-            msg = f'- <a href="{link}">{i}</a>\n'
+    for index, item in enumerate(list(files), start=1):
+        msg_id = files[item]
+        link = f"https://t.me/c/{chat_id}/{msg_id}"
+        if len(msg + f"<b>{index}.</b> <a href='{link}'>{item}</a>\n") > 4000:
+             msg_li.append(msg)
+             msg = f"<b>{index}.</b> <a href='{link}'>{item}</a>\n"
         else:
-            msg += f'- <a href="{link}">{i}</a>\n'
-
-    for i in msg_li:
-        await e.reply(i, parse_mode="html")
-        await aio.sleep(1)
-
+             msg += f"<b>{index}.</b> <a href='{link}'>{item}</a>\n"
     await e.reply(msg, parse_mode="html")
+
 
     try:
         if thash is not None:
@@ -585,7 +580,7 @@ async def print_files(e, files, thash=None, path=None, size=None):
     for i in files.keys():
         ids.append(files[i])
 
-    msgs = await e.client.get_messages(e.chat_id, ids=ids)
+"""    msgs = await e.client.get_messages(e.chat_id, ids=ids)
     for i in msgs:
         index = None
         for j in range(0, len(msgs)):
@@ -618,6 +613,7 @@ async def print_files(e, files, thash=None, path=None, size=None):
         except:
             pass
         await aio.sleep(2)
+"""
 
 
 def calculate_size(path):
