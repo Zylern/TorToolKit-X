@@ -775,7 +775,7 @@ async def handle_server_command(message):
             f"<b>Storage used:</b> {storage_percent}%\n"
             f"<b>Total:</b> {totaldsk}\n<b>Used:</b> {useddsk}\n<b>Free:</b> {freedsk}\n\n"
             f"<b>Memory used:</b> {mempercent}%\n"
-            f"<b>Total:</b> {memtotal}\n<b>Free:</b> {memfree}\n\n"
+            f"<b>Total:</b> {memtotal}\n<b>Available:</b> {memavailable}\n\n"
             f"<b>Transfer Download:</b> {dlb}\n"
             f"<b>Transfer Upload:</b> {upb}\n"
         )
