@@ -87,7 +87,7 @@ class QBTask(Status):
         msg += "<b>S:</b>{} <b>L:</b>{}\n\n".format(
             self._torrent.num_seeds, self._torrent.num_leechs
         )
-        msg += "<b>Using engine:</b> <code>qBittorrent</code>"
+        msg += "<b>Using Engine:</b> <code>qBittorrent</code>"
 
         return msg
 
@@ -243,7 +243,7 @@ class ARTask(Status):
         )
         msg += "<b>⏳ ETA:</b> {}\n\n".format(self._dl_file.eta_string())
         msg += "<b>Conns:</b> {}\n\n".format(self._dl_file.connections)
-        msg += "<b>Using engine:</b> <code>Aria2 For DirectLinks</code>"
+        msg += "<b>Using Engine:</b> <code>Aria2 For DirectLinks</code>"
 
         return msg
 
@@ -385,7 +385,7 @@ class MegaDl(Status):
         )
         msg += "<b>⏳ ETA:</b> <b>N/A</b>\n\n"
 
-        msg += "<b>Using engine:</b> <code>Mega DL</code>"
+        msg += "<b>Using Engine:</b> <code>Mega DL</code>"
 
         return msg
 
