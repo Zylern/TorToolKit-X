@@ -1,12 +1,10 @@
 {
-  "name": "TK - TorToolKit",
+  "name": "TorToolKit-X",
   "description": "A Telegram Bot that leeches magnet/torrent links/files from the interent. YT-DL supported for downloading youtube videos. Supports uploading to different cloud providers. ",
   "keywords": [
     "telegram","bot","torrent","leech"
   ],
-  "repository": "https://github.com/reaitten/tk",
-  "success_url": "https://github.com/reaitten/tk",
-  "website": "https://github.com/reaitten/tk",
+  "repository": "https://github.com/Zylern/TorToolKit-X",
   "env": {
     "BOT_TOKEN": {
       "description": "Your bot token, as a string.",
@@ -39,7 +37,7 @@
     },
     "FORCE_DOCUMENTS": {
       "description": "Should force evething uploaded into Document",
-      "value": "False"
+      "value": "True"
     },
     "COMPLETED_STR": {
       "description": "Character to use as a completed progress",
@@ -74,7 +72,7 @@
     },
     "MAX_TORRENT_SIZE": {
       "description": "Max size of the torrent allowed",
-      "value": "10",
+      "value": "100",
       "required": false
     },
     "BOT_CMD_POSTFIX": {
@@ -83,7 +81,7 @@
     },
     "USETTINGS_IN_PRIVATE": {
       "description": "Allow the user settings to be accessed in private",
-      "value": "False",
+      "value": "True",
       "required": false
     },
     "LEECH_ENABLED": {
@@ -93,7 +91,6 @@
     },
     "OWNER_ID": {
       "description": "Used to restrict use of certain stuff to owner only.",
-      "value": "12345678",
       "required": false
     } 
   },
