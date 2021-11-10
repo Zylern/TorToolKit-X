@@ -25,22 +25,22 @@ def human_readable_timedelta(seconds, precision=0):
     value = timedelta(seconds=seconds)
 
     if value.days:
-        pieces.append(f"{value.days} D")
+        pieces.append(f"{value.days}d ")
 
     seconds = value.seconds
 
     if seconds >= 3600:
         hours = int(seconds / 3600)
-        pieces.append(f"{hours} H")
+        pieces.append(f"{hours}h ")
         seconds -= hours * 3600
 
     if seconds >= 60:
         minutes = int(seconds / 60)
-        pieces.append(f"{minutes} M")
+        pieces.append(f"{minutes}m ")
         seconds -= minutes * 60
 
     if seconds > 0 or not pieces:
-        pieces.append(f"{seconds} S")
+        pieces.append(f"{seconds}s ")
 
     if not precision:
         return "".join(pieces)
