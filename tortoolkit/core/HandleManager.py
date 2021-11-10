@@ -269,14 +269,14 @@ async def handle_leech_command(e):
         buts.append(
             [
                 KeyboardButtonCallback(
-                    "Upload in a ZIP.[Toggle]", data=f"leechzip toggle {tsp}"
+                    "Upload in ZIP [Toggle]", data=f"leechzip toggle {tsp}"
                 )
             ]
         )
         buts.append(
             [
                 KeyboardButtonCallback(
-                    "Extract from Archive.[Toggle]", data=f"leechzipex toggleex {tsp}"
+                    "Extract from Archive [Toggle]", data=f"leechzipex toggleex {tsp}"
                 )
             ]
         )
@@ -655,8 +655,8 @@ async def start_handler(event):
 def progress_bar(percentage):
     """Returns a progress bar for download"""
     # percentage is on the scale of 0-1
-    comp = get_val("▬ ")
-    ncomp = get_val("▭")
+    comp = "▬ "
+    ncomp = "▭"
     pr = ""
 
     if isinstance(percentage, str):
@@ -782,7 +782,7 @@ async def handle_server_command(message):
         await message.reply(
             msg,
             parse_mode="html",
-            buttons=[[KeyboardButtonCallback("Get detailed stats.", "fullserver")]],
+            buttons=[[KeyboardButtonCallback("Get Detailed Stats", "fullserver")]],
         )
 
 
@@ -928,3 +928,6 @@ async def booted(client):
 
 def command_process(command):
     return re.compile(command, re.IGNORECASE)
+    
+    
+    
