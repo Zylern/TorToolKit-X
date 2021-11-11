@@ -94,7 +94,7 @@
     "required": false
     },
     "MEGA_API": {
-      "description": "Mega.nz Access Token Get It From https://mega.nz/sdk",
+      "description": "Mega.nz Access Token Get It From https://mega.nz/sdk Open Link In Desktop Mode",
       "required": false
     },
     "MEGA_PASS": {
