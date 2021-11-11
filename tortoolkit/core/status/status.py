@@ -68,27 +68,26 @@ class QBTask(Status):
         return self._omess.sender_id
 
     async def create_message(self):
-        msg = "<b>{} {}%\n\n".format(
+        msg = "<b>📥 Downloading:</b> <code>{}</code>\n\n".format(self._torrent.name)
+        msg += "<b>{} {}%\n\n".format(
             self.progress_bar(self._torrent.progress),
             round(self._torrent.progress * 100, 2),
         )
-        msg += "<b>📥 Downloading:</b> <code>{}</code>\n\n".format(self._torrent.name)
-        msg += "<b>⬇️ Down:</b> {} <b>|</b> <b>⬆️ Up:</b> {}\n\n".format(
+        msg += "<b>Down:</b> {} | <b>Up:</b> {}\n".format(
             human_readable_bytes(self._torrent.dlspeed, postfix="/s"),
             human_readable_bytes(self._torrent.upspeed, postfix="/s"),
         )
-        msg += "<b>✅ Downloaded:</b> {} of {}\n\n".format(
+        msg += "<b>Downloaded:</b> {} of {}\n".format(
             human_readable_bytes(self._torrent.downloaded),
             human_readable_bytes(self._torrent.total_size),
         )
-        msg += "<b>⏳ ETA:</b> {}\n\n".format(
+        msg += "<b>ETA:</b> {}\n".format(
             human_readable_timedelta(self._torrent.eta)
         )
-        msg += "<b>S:</b>{} <b>L:</b>{}\n\n".format(
+        msg += "<b>S:</b>{} | <b>L:</b>{}\n".format(
             self._torrent.num_seeds, self._torrent.num_leechs
         )
-        msg += "<b>Using Engine:</b> <code>qBittorrent</code>"
-
+        msg += "<b>Using Engine:</b> qBittorrent"
         return msg
 
     async def get_state(self):
@@ -229,21 +228,22 @@ class ARTask(Status):
         except:
             pass
 
-        msg = "<b>{} {}%\n\n".format(
+
+        msg = "<b>📥 Downloading:</b> <code>{}</code>\n\n".format(downloading_dir_name)
+        msg += "<b>{} {}%\n\n".format(
             self.progress_bar(self._dl_file.progress / 100),
             round(self._dl_file.progress, 2),
         )
-        msg += "<b>📥 Downloading:</b> <code>{}</code>\n\n".format(downloading_dir_name)
-        msg += "<b>⬇️ Down:</b> {} <b>|</b> <b>⬆️ Up:</b> {}\n\n".format(
+        msg += "<b>Down:</b> {} | <b>Up:</b> {}\n".format(
             self._dl_file.download_speed_string(), self._dl_file.upload_speed_string()
         )
-        msg += "<b>✅ Downloaded:</b> {} of {}\n\n".format(
+        msg += "<b>Downloaded:</b> {} of {}\n".format(
             human_readable_bytes(self._dl_file.completed_length),
             human_readable_bytes(self._dl_file.total_length),
         )
-        msg += "<b>⏳ ETA:</b> {}\n\n".format(self._dl_file.eta_string())
-        msg += "<b>Conns:</b> {}\n\n".format(self._dl_file.connections)
-        msg += "<b>Using Engine:</b> <code>Aria2 For DirectLinks</code>"
+        msg += "<b>ETA:</b> {}\n".format(self._dl_file.eta_string())
+        msg += "<b>Conns:</b> {}\n".format(self._dl_file.connections)
+        msg += "<b>Using Engine:</b> Aria2 For DirectLinks"
 
         return msg
 
@@ -364,12 +364,14 @@ class MegaDl(Status):
         else:
             self._dl_info = dl_info
 
+
+
+
     async def create_message(self):
         # Getting the vars pre handed
 
         msg = "<b>📥 Downloading:</b> <code>{}</code>\n\n".format(self._dl_info["name"])
-        msg += "<b>🚀 Speed:</b> {}\n\n".format(human_readable_bytes(self._dl_info["speed"]))
-        msg += "{} {}%\n\n".format(
+        msg += "{} {}%\n".format(
             self.progress_bar(
                 (self._dl_info["completed_length"] / self._dl_info["total_length"])
             ),
@@ -379,15 +381,16 @@ class MegaDl(Status):
                 2,
             ),
         )
-        msg += "<b>✅ Downloaded:</b> {} of {}\n\n".format(
+        msg += "<b>Speed:</b> {}\n".format(human_readable_bytes(self._dl_info["speed"]))
+        msg += "<b>Downloaded:</b> {} of {}\n".format(
             human_readable_bytes(self._dl_info["completed_length"]),
             human_readable_bytes(self._dl_info["total_length"]),
         )
-        msg += "<b>⏳ ETA:</b> <b>N/A</b>\n\n"
-
-        msg += "<b>Using Engine:</b> <code>Mega DL</code>"
-
+        msg += "<b>ETA:</b> N/A\n"
+        msg += "<b>Using Engine:</b> Mega DL"
         return msg
+
+
 
     async def get_state(self):
         # No states for aria2
