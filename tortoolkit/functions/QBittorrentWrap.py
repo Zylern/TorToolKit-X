@@ -531,7 +531,7 @@ async def register_torrent(entity, message, user_msg=None, magnet=False, file=Fa
             return False
         torlog.info(torrent)
         if torrent.progress == 1 and torrent.completion_on > 1:
-            await message.edit("The provided torrent was already completly downloaded.")
+            await message.edit("The provided torrent was already completely downloaded.")
             return True
         else:
 
@@ -547,7 +547,7 @@ async def register_torrent(entity, message, user_msg=None, magnet=False, file=Fa
             urll = f"{base}/tortk/files/{torrent.hash}"
 
             message = await message.edit(
-                "Download will be automatically started after 180s of no action.",
+                "Download will be automatically started after 120s of no action.",
                 buttons=[
                     [
                         KeyboardButtonUrl("Choose File from link", urll),
@@ -650,7 +650,7 @@ async def get_confirm(e):
     start = time.time()
 
     while not lis[0]:
-        if (time.time() - start) >= 180:
+        if (time.time() - start) >= 120:
             break
         await aio.sleep(1)
 
