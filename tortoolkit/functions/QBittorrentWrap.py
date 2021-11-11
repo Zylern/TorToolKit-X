@@ -49,7 +49,7 @@ async def get_client(
     # try to connect to the server :)
     try:
         await aloop.run_in_executor(None, client.auth_log_in)
-        torlog.info("Client connected successfully to the torrent server. 😎")
+        torlog.info("Client connected successfully to the torrent server.")
         try:
             if get_val("ADD_CUSTOM_TRACKERS"):
 
