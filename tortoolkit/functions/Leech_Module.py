@@ -541,20 +541,20 @@ async def errored_message(e, reason):
 async def print_files(e, files, thash=None, path=None, size=None):
     chat_id = str(e.chat.id)[4:]
     count = len(files)
-    msg = f"#uploads\n<a href='tg://user?id={e.sender_id}'>Your Requested Files:</a>\n\n"
+    msg = f"#Completed\n"
     if path is not None and size is None:
         size = calculate_size(path)
         transfer[0] += size
         size = human_readable_bytes(size)
-        msg += f"<b>Total Size:</b> {str(size)}\n<b>Total Files:</b> {count}\n\n"
+        msg += f"<b>Total Size:</b> {str(size)}\n<b>Total Files:</b> {count}\n<a href='tg://user?id={e.sender_id}'>Your Requested Files:</a>\n\n"
     elif size is not None:
         transfer[0] += size
         size = human_readable_bytes(size)
-        msg += f"<b>Total Size:</b> {str(size)}\n<b>Total Files:</b> {count}\n\n"
+        msg += f"<b>Total Size:</b> {str(size)}\n<b>Total Files:</b> {count}\n<a href='tg://user?id={e.sender_id}'>Your Requested Files:</a>\n\n"
     if len(files) == 0:
         return
     msg_li = []
-    for index, item in enumerate(list(files), start=1):
+    for index, item in enumerate(list(files), start=1): #@Zylern
         msg_id = files[item]
         link = f"https://t.me/c/{chat_id}/{msg_id}"
         if len(msg + f"<b>{index}.</b> <a href='{link}'>{item}</a>\n") > 4000:
@@ -562,7 +562,11 @@ async def print_files(e, files, thash=None, path=None, size=None):
              msg = f"<b>{index}.</b> <a href='{link}'>{item}</a>\n"
         else:
              msg += f"<b>{index}.</b> <a href='{link}'>{item}</a>\n"
+    for item in msg_li:
+        await e.reply(item, parse_mode="html")
+        await aio.sleep(1)
     await e.reply(msg, parse_mode="html")
+
 
 
     try:
