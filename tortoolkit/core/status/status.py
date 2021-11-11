@@ -69,17 +69,17 @@ class QBTask(Status):
 
     async def create_message(self):
         msg = "<b>📥 Downloading:</b> <code>{}</code>\n\n".format(self._torrent.name)
-        msg += "<b>{} {}%\n\n".format(
+        msg += "<b>{} {}%\n".format(
             self.progress_bar(self._torrent.progress),
             round(self._torrent.progress * 100, 2),
-        )
-        msg += "<b>Down:</b> {} | <b>Up:</b> {}\n".format(
-            human_readable_bytes(self._torrent.dlspeed, postfix="/s"),
-            human_readable_bytes(self._torrent.upspeed, postfix="/s"),
         )
         msg += "<b>Downloaded:</b> {} of {}\n".format(
             human_readable_bytes(self._torrent.downloaded),
             human_readable_bytes(self._torrent.total_size),
+        )
+        msg += "<b>Down:</b> {} | <b>Up:</b> {}\n".format(
+            human_readable_bytes(self._torrent.dlspeed, postfix="/s"),
+            human_readable_bytes(self._torrent.upspeed, postfix="/s"),
         )
         msg += "<b>ETA:</b> {}\n".format(
             human_readable_timedelta(self._torrent.eta)
@@ -230,16 +230,16 @@ class ARTask(Status):
 
 
         msg = "<b>📥 Downloading:</b> <code>{}</code>\n\n".format(downloading_dir_name)
-        msg += "<b>{} {}%\n\n".format(
+        msg += "<b>{} {}%\n".format(
             self.progress_bar(self._dl_file.progress / 100),
             round(self._dl_file.progress, 2),
-        )
-        msg += "<b>Down:</b> {} | <b>Up:</b> {}\n".format(
-            self._dl_file.download_speed_string(), self._dl_file.upload_speed_string()
         )
         msg += "<b>Downloaded:</b> {} of {}\n".format(
             human_readable_bytes(self._dl_file.completed_length),
             human_readable_bytes(self._dl_file.total_length),
+        )
+        msg += "<b>Down:</b> {} | <b>Up:</b> {}\n".format(
+            self._dl_file.download_speed_string(), self._dl_file.upload_speed_string()
         )
         msg += "<b>ETA:</b> {}\n".format(self._dl_file.eta_string())
         msg += "<b>Conns:</b> {}\n".format(self._dl_file.connections)
@@ -381,11 +381,11 @@ class MegaDl(Status):
                 2,
             ),
         )
-        msg += "<b>Speed:</b> {}\n".format(human_readable_bytes(self._dl_info["speed"]))
         msg += "<b>Downloaded:</b> {} of {}\n".format(
             human_readable_bytes(self._dl_info["completed_length"]),
             human_readable_bytes(self._dl_info["total_length"]),
         )
+        msg += "<b>Speed:</b> {}\n".format(human_readable_bytes(self._dl_info["speed"]))
         msg += "<b>ETA:</b> N/A\n"
         msg += "<b>Using Engine:</b> Mega DL"
         return msg
