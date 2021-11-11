@@ -7,6 +7,10 @@ except:
         # Set true if its VPS
         IS_VPS = False
 
+        #mega crediantials
+        MEGA_API = os.environ.get("MEGA_API")
+        MEGA_UNAME = os.environ.get("MEGA_UNAME")
+        MEGA_PASS = os.environ.get("MEGA_PASS")
 
         API_HASH = os.environ.get("API_HASH")
         API_ID = int(os.environ.get("APP_ID", 12345))
