@@ -741,7 +741,7 @@ async def handle_server_command(message):
 
     if callbk:
         msg = (
-            f"<b>BOT UPTIME:</b> {diff}\n\n"
+            f"<b>Bot Uptime:</b> {diff}\n\n"
             "<b>CPU STATS:</b>\n"
             f"Cores: {cores} Logical: {lcores}\n"
             f"CPU Frequency: {freqcurrent}  Mhz Max: {freqmax}\n"
@@ -770,7 +770,7 @@ async def handle_server_command(message):
             storage_percent = 0
 
         msg = (
-            f"<b>BOT UPTIME:</b> {diff}\n\n"
+            f"<b>Bot Uptime:</b> {diff}\n\n"
             f"<b>CPU Utilization:</b> {cpupercent}%\n\n"
             f"<b>Storage used:</b> {storage_percent}%\n"
             f"<b>Total:</b> {totaldsk}\n<b>Used:</b> {useddsk}\n<b>Free:</b> {freedsk}\n\n"
@@ -819,10 +819,10 @@ async def about_me(message):
     msg = (
         f"<b>Name:</b> <a href='https://github.com/Zylern/TorToolKit-X'>TorToolKit-X</a>\n"
         f"<b>Version:</b> <code>{__version__}</code>\n"
+        f"<b>Bot Uptime:</b> {diff}\n"
         f"<b>Telethon Version:</b> {telever}\n"
         f"<b>Pyrogram Version:</b> {pyrover}\n"
 #        "<u>Currents Configs:</u>\n\n"
-        f"<b>Bot Uptime:</b> {diff}\n"
         "<b>Torrent Download Engine:</b> <code>qBittorrent [4.3.0 fix active]</code> \n"
         "<b>Direct Link Download Engine:</b> <code>aria2</code> \n"
         "<b>Upload Engine:</b> <code>RCLONE</code> \n"
