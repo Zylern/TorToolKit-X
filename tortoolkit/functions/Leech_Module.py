@@ -94,7 +94,7 @@ async def check_link(msg, rclone=False, is_zip=False, extract=False, prev_msg=No
                 parse_mode="html",
             )
         elif name.lower().endswith(".torrent"):
-            rmess = await omess.reply("Downloading the torrent file.")
+            rmess = await omess.reply("Download will be automatically started after 120s of no action.")
 
             # not worring about the download location now
             # TODO do something to de register the torrents
@@ -234,7 +234,7 @@ async def check_link(msg, rclone=False, is_zip=False, extract=False, prev_msg=No
             await clear_stuff(dl_path)
 
         elif msg.raw_text.lower().endswith(".torrent"):
-            rmess = await omess.reply("Downloading the torrent file.")
+            rmess = await omess.reply("Download will be automatically started after 120s of no action.")
 
             # TODO do something to de register the torrents - done
             path = ""
