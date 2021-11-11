@@ -72,7 +72,7 @@ async def upload_handel(
 
         try:
             message = await message.edit(
-                "{}\n\n**Found** {} **files for this Telegram Upload**".format(
+                "{}**Found** {} **files for Telegram Upload**\n".format(
                     message.text, len(directory_contents)
                 )
             )
