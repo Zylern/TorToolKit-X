@@ -491,12 +491,12 @@ async def handle_upcancel_cb(e):
 
     if str(e.sender_id) == data[3]:
         db.cancel_download(data[1], data[2])
-        await e.answer("Upload has been canceled ;)", alert=True)
+        await e.answer("Upload has been canceled.", alert=True)
     elif e.sender_id in get_val("ALD_USR"):
         db.cancel_download(data[1], data[2])
         await e.answer("UPLOAD CANCELED IN ADMIN MODE XD ;)", alert=True)
     else:
-        await e.answer("Can't Cancel others upload 😡", alert=True)
+        await e.answer("Can't Cancel others upload.", alert=True)
 
 
 async def callback_handler_canc(e):
