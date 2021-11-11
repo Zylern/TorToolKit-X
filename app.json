@@ -89,6 +89,18 @@
       "value": "True",
       "required": false
     },
+    "MEGA_UNAME": {
+    "description": "Your Mega.nz Username",
+    "required": false
+    },
+    "MEGA_API": {
+      "description": "Mega.nz Access Token Get It From https://mega.nz/sdk",
+      "required": false
+    },
+    "MEGA_PASS": {
+      "description": "Your Mega.nz Password",
+      "required": false
+    },
     "OWNER_ID": {
       "description": "Used to restrict use of certain stuff to owner only.",
       "required": false
@@ -104,3 +116,5 @@
     }
   ]
 }
+
+
