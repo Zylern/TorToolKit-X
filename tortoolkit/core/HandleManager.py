@@ -621,7 +621,7 @@ async def upload_document_f(message):
 
 async def get_logs_f(e):
     if await is_admin(e.client, e.sender_id, e.chat_id, force_owner=True):
-        e.text += " #logs"
+        e.text += " TorToolKit-X_Logs@Zylern.txt"
         await upload_document_f(e)
     else:
         await e.delete()
