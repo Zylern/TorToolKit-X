@@ -594,7 +594,7 @@ async def handle_pincode_cb(e):
         db = tor_db
         passw = db.get_password(data[1])
         if isinstance(passw, bool):
-            await e.answer("torrent expired download has been started now.")
+            await e.answer("Torrent expired download has been started now.")
         else:
             await e.answer(f"Your Pincode is {passw}", alert=True)
 
@@ -603,7 +603,7 @@ async def handle_pincode_cb(e):
 
 
 async def upload_document_f(message):
-    imsegd = await message.reply("processing ...")
+    imsegd = await message.reply("Processing...")
     imsegd = await message.client.get_messages(message.chat_id, ids=imsegd.id)
     if await is_admin(
         message.client, message.sender_id, message.chat_id, force_owner=True
@@ -621,7 +621,7 @@ async def upload_document_f(message):
 
 async def get_logs_f(e):
     if await is_admin(e.client, e.sender_id, e.chat_id, force_owner=True):
-        e.text += " torlog.txt"
+        e.text += " #logs"
         await upload_document_f(e)
     else:
         await e.delete()
@@ -817,11 +817,11 @@ async def about_me(message):
 
 
     msg = (
-        f"<b>Name</b>: <a href='https://github.com/Zylern/TorToolKit-X'>TorToolKit-X</a>\n"
-        f"<b>Version</b>: <code>{__version__}</code>\n"
-        f"<b>Telethon Version</b>: {telever}\n"
-        f"<b>Pyrogram Version</b>: {pyrover}\n"
-        "<u>Currents Configs:</u>\n\n"
+        f"<b>Name:</b> <a href='https://github.com/Zylern/TorToolKit-X'>TorToolKit-X</a>\n"
+        f"<b>Version:</b> <code>{__version__}</code>\n"
+        f"<b>Telethon Version:</b> {telever}\n"
+        f"<b>Pyrogram Version:</b> {pyrover}\n"
+#        "<u>Currents Configs:</u>\n\n"
         f"<b>Bot Uptime:</b> {diff}\n"
         "<b>Torrent Download Engine:</b> <code>qBittorrent [4.3.0 fix active]</code> \n"
         "<b>Direct Link Download Engine:</b> <code>aria2</code> \n"
