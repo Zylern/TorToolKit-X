@@ -539,7 +539,7 @@ async def errored_message(e, reason):
 
 
 async def print_files(e, files, thash=None, path=None, size=None):
-    chat_id = str(e.chat.id)[4:]
+    chat_id = str(e.chat_id)[4:]
     count = len(files)
     msg = f"#Completed\n"
     if path is not None and size is None:
