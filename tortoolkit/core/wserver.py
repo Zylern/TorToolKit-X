@@ -27,7 +27,7 @@ page = """
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Torrent File Selector</title>
-    <link rel="icon" href="https://telegra.ph/file/f9e5d783542906418412d.jpg" type="image/jpg">
+    <link rel="icon" href="https://telegra.ph/file/3c2cfbd677de48cb4f7c7.jpg" type="image/jpg">
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
@@ -200,7 +200,7 @@ input[type="submit"]:hover, input[type="submit"]:focus{
     <header>
       <div class="brand">
         <img
-          src="https://telegra.ph/file/f9e5d783542906418412d.jpg"
+          src="https://telegra.ph/file/3c2cfbd677de48cb4f7c7.jpg"
           alt="logo"
         />
         <a href="https://t.me/Zylern"> 
@@ -343,7 +343,7 @@ code_page = """
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Torrent Code Checker</title>
-    <link rel="icon" href="https://telegra.ph/file/f9e5d783542906418412d.jpg" type="image/jpg"> 
+    <link rel="icon" href="https://telegra.ph/file/3c2cfbd677de48cb4f7c7.jpg" type="image/jpg"> 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -539,7 +539,7 @@ section span{
     <header>
       <div class="brand">
         <img
-          src="https://telegra.ph/file/f9e5d783542906418412d.jpg"
+          src="https://telegra.ph/file/3c2cfbd677de48cb4f7c7.jpg"
           alt="logo"
         />
         <a href="https://t.me/Zylern">
