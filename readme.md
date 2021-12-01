@@ -289,7 +289,7 @@ Following are some awesome features offered by this bot:-
     settings - Settings of the bot ⚠️ Admin Only
     pauseall - Pause all torrents⚠️ Admin Only
     resumeall - Resume all torrents⚠️ Admin Only
-    purge - Delete all torrents ⚠️ Admin Only
+    purgetor - Delete all torrents ⚠️ Admin Only
     getlogs - Get the robot logs ⚠️ Admin Only
      
 
