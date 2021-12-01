@@ -1,6 +1,6 @@
 class Commands:
     LEECH = "leech"
-    PURGE = "purge"
+    PURGE = "purgetor"
     PAUSEALL = "pauseall"
     RESUMEALL = "resumeall"
     STATUS = "status"
